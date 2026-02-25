@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Transfer Sewa DAFF PRODUCTION</title>
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f1f5f9;
+}
+
+.container{
+max-width:500px;
+margin:40px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+}
+
+button{
+margin-top:15px;
+padding:12px;
+width:100%;
+cursor:pointer;
+}
+
+.konfirmasi{
+display:none;
+background:#fff3cd;
+padding:15px;
+margin-top:20px;
+border-radius:10px;
+}
+
+.bukti{
+display:none;
+background:#d1e7dd;
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+}
+
+.struk{
+background:white;
+padding:15px;
+border-radius:10px;
+margin-top:10px;
+border:1px solid #ccc;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="container">
+
+<h3>Transfer ke DAFF PRODUCTION</h3>
+
+<input id="jumlah" placeholder="Jumlah Transfer">
+
+<input id="nama" placeholder="Nama Anda (Pengirim)">
+
+<input id="rek" placeholder="Nomor Rekening Anda">
+
+
+<button onclick="cekData()">
+Transfer
+</button>
+
+
+
+<div class="konfirmasi" id="konfirmasi">
+
+<h4>Konfirmasi Transfer</h4>
+
+<p id="textKonfirmasi"></p>
+
+<button onclick="prosesTransfer()">
+Ya, Transfer
+</button>
+
+<button onclick="batal()">
+Batal
+</button>
+
+</div>
+
+
+
+<div class="bukti" id="bukti">
+
+<h3>BUKTI TRANSFER</h3>
+
+<div class="struk">
+
+<p id="tanggal"></p>
+
+<p id="buktiPengirim"></p>
+
+<p>Penerima: DAFF PRODUCTION</p>
+
+<p id="buktiJumlah"></p>
+
+<p id="ref"></p>
+
+<p>Status: BERHASIL</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+var jumlah,nama,rek;
+
+function cekData(){
+
+jumlah =
+document.getElementById("jumlah").value;
+
+nama =
+document.getElementById("nama").value;
+
+rek =
+document.getElementById("rek").value;
+
+
+document.getElementById("konfirmasi")
+.style.display="block";
+
+
+document.getElementById("textKonfirmasi")
+.innerHTML=
+
+"Anda akan transfer Rp "+jumlah+
+"<br><br>Dari: "+nama+
+"<br>Rekening: "+rek+
+"<br><br>Ke: DAFF PRODUCTION"+
+"<br><br>Apakah sudah benar?";
+
+}
+
+
+
+function batal(){
+
+document.getElementById("konfirmasi")
+.style.display="none";
+
+}
+
+
+
+function prosesTransfer(){
+
+document.getElementById("konfirmasi")
+.style.display="none";
+
+document.getElementById("bukti")
+.style.display="block";
+
+
+var tgl = new Date();
+
+
+document.getElementById("tanggal")
+.innerHTML="Tanggal: "+tgl;
+
+
+document.getElementById("buktiPengirim")
+.innerHTML="Pengirim: "+nama;
+
+
+document.getElementById("buktiJumlah")
+.innerHTML="Jumlah: Rp "+jumlah;
+
+
+document.getElementById("ref")
+.innerHTML=
+
+"Ref: TRX"+Math.floor(Math.random()*99999999);
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
+```
